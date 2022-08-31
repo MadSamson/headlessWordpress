@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Posts() {
     const [posts, setPosts] = useState([])
@@ -18,10 +19,9 @@ export default function Posts() {
   return (
     <div>
         {posts.map((post,index) => (
-            <div key={index}>
-                <h1>{post.title.rendered}</h1>
-                <div>{post.content.rendered}</div>
-            </div>
+            <ul key={index} className='post-container'>
+                <Link to={`/post/${post.id}`}><li className='title'>{post.title.rendered}</li></Link> 
+            </ul>
         ))
         }
     </div>
